@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e7b23bcd-d09b-474f-be96-01ec8d400b72" name="Copy of project-level server 'Lab'" url="http://172.16.124.16">
+        <fileTransfer host="172.16.124.16" port="22" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+    <groups>
+      <group>
+        <name>Lab</name>
+        <servers>
+          <name value="Copy of project-level server 'Lab'" />
+        </servers>
+      </group>
+    </groups>
+  </component>
+</project>
