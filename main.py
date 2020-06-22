@@ -53,7 +53,7 @@ parser.add_argument('--seed', type=int, default=17)
 parser.add_argument('--num_workers', type=int, default=7)
 
 # optim config
-parser.add_argument('--epochs', type=int, default=1800)
+parser.add_argument('--epochs', type=int, default=450)
 parser.add_argument('--batch_size', type=int, default=128)
 parser.add_argument('--base_lr', type=float, default=0.2)
 parser.add_argument('--weight_decay', type=float, default=1e-4)
@@ -226,7 +226,7 @@ def output_selector(outputs, answers, idx):
 
 def train(epoch):
     print('\nEpoch: %d' % epoch)
-    scheduler.step()
+
     student.train()
     train_loss = 0
     correct = 0
@@ -263,6 +263,8 @@ def train(epoch):
 
         progress_bar(batch_idx, len(trainloader), 'Teacher: %s | Lr: %.4e | G_Loss: %.3f | D_Loss: %.3f | Acc: %.3f%% (%d/%d)'
             % (teacher.__name__, scheduler.get_lr()[0], train_loss / (batch_idx + 1), discriminator_loss / (batch_idx + 1), 100. * correct / total, correct, total))
+
+    scheduler.step()
 
 
 def test(epoch):
